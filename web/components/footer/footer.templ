@@ -1,0 +1,13 @@
+package footer
+
+import (
+  "fmt"
+  "time"
+)
+
+var t = time.Now()
+var year = fmt.Sprint(t.Year())
+
+templ Footer() {
+  <div>&copy;{year} Cara Barrera</div>
+}

@@ -1,0 +1,21 @@
+package pages
+
+import (
+  "carabarrera/web/components/header"
+  "carabarrera/web/components/footer"
+  "carabarrera/web/components/htmx"
+)
+
+templ Index() {
+  <!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="utf-8"/>
+      @htmx.Htmx()
+    </head>
+    <body>
+      @header.Header("Cara")
+      @footer.Footer()
+    </body>
+  </html>
+}
