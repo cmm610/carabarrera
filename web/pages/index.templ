@@ -3,6 +3,7 @@ package pages
 import (
   "carabarrera/web/components/header"
   "carabarrera/web/components/footer"
+  "carabarrera/web/components/button"
   "carabarrera/web/components/htmx"
 )
 
@@ -11,10 +12,13 @@ templ Index() {
   <html lang="en">
     <head>
       <meta charset="utf-8"/>
+      <link rel="stylesheet" href="./public/css/main.css" type="text/css" />
       @htmx.Htmx()
     </head>
     <body>
       @header.Header("Cara")
+      @button.Button("info", "test2")
+      @button.PrimaryButton("primary", "test")
       @footer.Footer()
     </body>
   </html>

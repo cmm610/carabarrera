@@ -1,15 +1,25 @@
 package main
 
 import (
-  "carabarrera/web/pages"
   "fmt"
-  "github.com/a-h/templ"
   "net/http"
+  "path/filepath"
+
+  "carabarrera/internal/server"
+  "carabarrera/web/pages"
+
+  "github.com/a-h/templ"
+  "github.com/go-chi/chi/v5"
 )
 func main() {
   page := pages.Index()
-  http.Handle("/", templ.Handler(page))
-  fmt.Println("Listening on :3000")
+  r := chi.NewRouter()
+  r.Get("/", templ.Handler(page).ServeHTTP)
 
-  http.ListenAndServe(":3000", nil)
+  workDir := "./web/static"
+  filesDir := http.Dir(filepath.Join(workDir, "/"))
+  server.FileServer(r, "/public", filesDir)
+  http.ListenAndServe(":3000", r)
+
+  fmt.Println("Listening on :3000")
 }

@@ -11,6 +11,7 @@ import "io"
 import "bytes"
 
 import (
+	"carabarrera/web/components/button"
 	"carabarrera/web/components/footer"
 	"carabarrera/web/components/header"
 	"carabarrera/web/components/htmx"
@@ -29,7 +30,7 @@ func Index() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<!doctype html><html lang=\"en\"><head><meta charset=\"utf-8\">")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<!doctype html><html lang=\"en\"><head><meta charset=\"utf-8\"><link rel=\"stylesheet\" href=\"./public/css/main.css\" type=\"text/css\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -42,6 +43,14 @@ func Index() templ.Component {
 			return templ_7745c5c3_Err
 		}
 		templ_7745c5c3_Err = header.Header("Cara").Render(ctx, templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = button.Button("info", "test2").Render(ctx, templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = button.PrimaryButton("primary", "test").Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
