@@ -1,6 +1,6 @@
 module carabarrera
 
-go 1.21.4
+go 1.20.12
 
 require (
 	github.com/a-h/templ v0.2.501 // indirect

@@ -1,13 +1,17 @@
 package button
 
-templ Button(text string, className string) {
-	<button class={ "ml-1", className }> { text }</button>
-}
-
-templ PrimaryButton(text string, className string) {
-	<button class={ className }>
+templ PrimaryButton(text string, attrs templ.Attributes) {
+	<button class="primary">
 		{ text }
+		{ children...}
   </button>
 }
+
+templ Button(text string) {
+	<button class="secondary">
+		{ text }
+	</button>
+}
+
 
 

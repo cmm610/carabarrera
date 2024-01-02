@@ -17,9 +17,10 @@ templ Index() {
     </head>
     <body>
       @header.Header("Cara")
-      @button.Button("info", "test2")
-      testing222
-      @button.PrimaryButton("primary", "test")
+      @button.PrimaryButton("primary", templ.Attributes{"data-testid": "paragraph"}) {
+        <span>something cool</span>
+      }
+      @button.Button("secondary")
       @footer.Footer()
     </body>
   </html>
