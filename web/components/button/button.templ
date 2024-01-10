@@ -8,10 +8,7 @@ templ PrimaryButton(text string, attrs templ.Attributes) {
 }
 
 templ Button(text string) {
-	<button class="secondary">
+	<button class="secondary" hx-post="/clicked" hx-target="#parent-div" hx-trigger="click" hx-swap="outerHTML">
 		{ text }
 	</button>
 }
-
-
-

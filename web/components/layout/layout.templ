@@ -1,0 +1,22 @@
+package layout
+
+import (
+  "carabarrera/web/components/header"
+  "carabarrera/web/components/footer"
+)
+
+templ Layout(pageName string) {
+   <!DOCTYPE html>
+   <html lang="en">
+     <head>
+       <meta charset="utf-8"/>
+       <link rel="stylesheet" href="./public/css/main.css" type="text/css" />
+			 <script src="./public/js/htmx.min.js"></script>
+     </head>
+     <body>
+       @header.Header(pageName)
+       { children... }
+       @footer.Footer()
+     </body>
+   </html>
+}

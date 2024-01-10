@@ -1,17 +1,29 @@
 package header
 
-// Ordinary Go code that we can use in our Component.
-var greeting = "Welcome!"
-var a = "something"
-templ Header(name string) {
+func getLinkClass(currentPage string, page string) (string) {
+  if (currentPage == page) {
+    return "active"
+  }
+  return ""
+}
+
+templ Header(pageName string) {
   <header>
-    <nav class="flex" aria-label="Tabs">
-	    <a href="#" class="awa awe">My Account</a>
-	    <a href="#" class="awa awe">Company</a>
-	    <a href="#" class="" aria-current="page">Team Members</a>
-	    <a href="#" class="awa awe">Billing</a>
+    <nav aria-label="Tabs" class="px-4">
+      <ul>
+        <li><strong>Cara Barrera</strong></li>
+      </ul>
+      <ul>
+        <li>
+	        <a href="/" class={getLinkClass(pageName, "/")}>Home</a>
+        </li>
+        <li>
+	        <a href="/my_work" class={getLinkClass(pageName, "/my_work")}>My Work</a>
+        </li>
+        <li>
+	        <a href="/resume" class={getLinkClass(pageName, "/resume")}>Resume</a>
+        </li>
+      </ul>
     </nav>
-    <h1>{ name }</h1>
-    <h2>"{ greeting }" comes from ordinary Go code</h2>
   </header>
 }
